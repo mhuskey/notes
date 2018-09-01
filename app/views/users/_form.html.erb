@@ -11,4 +11,6 @@
   <%= f.password_field :password_confirmation, class: "form-control" %>
   
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <br /><br />
+  <%= link_to "Cancel", root_path, class: "cancel btn btn-danger" %>
 <% end %>
