@@ -20,9 +20,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should create user" do
-    email = "user@example.com"
+    email    = "user@example.com"
+    password = "foobar"
     assert_difference 'User.count' do
-      post users_path, params: { user: { email: email, password: "foobar", password_confirmation: "foobar" } }
+      post users_path, params: { user: { email: email, password: password, password_confirmation: password } }
     end
     assert_redirected_to root_path
     assert_not flash.empty?
@@ -31,8 +32,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should edit user" do
-    email = "matthew@example.com"
-    patch user_path(@user), params: { user: { email: email, password: "foobar1", password_confirmation: "foobar1" } }
+    email    = "matthew@example.com"
+    password = "foobar"
+    patch user_path(@user), params: { user: { email: email, password: password, password_confirmation: password } }
     assert_redirected_to root_path
     assert_not flash.empty?
     @user.reload

@@ -1,13 +1,64 @@
 class NotesController < ApplicationController
+  
+  before_action :set_user
+  before_action :set_note, only: [:show, :update, :edit, :destroy]
+  
   def index
+    @notes = @user.notes.all
   end
-
+  
   def show
+    @note = @user.notes.find(params[:id])
   end
-
+  
   def new
+    @note = Note.new
   end
-
+  
+  def create
+    @note = @user.notes.create(note_params)
+    if @note.save
+      flash[:success] = "Note created!"
+      redirect_to user_notes_path
+    else
+      render 'new'
+    end
+  end
+  
   def edit
   end
+  
+  def update
+    if @note.update(note_params)
+      flash[:success] = "Note updated!"
+      redirect_to user_note_path
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    if @note.destroy
+      flash[:success] = "Note deleted!"
+    else
+      flash[:danger]  = "Error deleting note!"
+    end
+    redirect_to user_notes_path
+  end
+  
+  
+  private
+    
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+    
+    def set_note
+      @note = @user.notes.find(params[:id])
+    end
+    
+    def note_params
+      params.require(:note).permit(:title, :content)
+    end
+    
 end

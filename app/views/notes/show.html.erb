@@ -1,2 +1,14 @@
-<h1>Notes#show</h1>
-<p>Find me in app/views/notes/show.html.erb</p>
+<%= provide(:title, @note.title) %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= @note.title %></h1>
+    <p><%= @note.content %></p>
+    
+    <br />
+    <%= link_to "Edit Note", edit_user_note_path(@user, @note) %>
+    
+    <br />
+    <h2><%= link_to "All Notes", user_notes_path %> | <%= link_to "Delete", user_note_path(@user, @note), method: :delete, data: { confirm: "Are you sure? This action cannot be undone." } %></h2>
+  </div>
+</div>

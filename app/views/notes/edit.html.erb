@@ -1,2 +1,10 @@
-<h1>Notes#edit</h1>
-<p>Find me in app/views/notes/edit.html.erb</p>
+<%= provide(:title, 'Edit Note') %>
+<%= provide(:button_text, 'Edit Note') %>
+
+<div class="row">
+  <div class="forms col-md-6 col-md-offset-3">
+    <h1 class="text-center">Edit Note</h1>
+    
+    <%= render 'edit_form' %>
+  </div>
+</div>

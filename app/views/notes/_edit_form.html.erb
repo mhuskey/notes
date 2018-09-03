@@ -1,0 +1,13 @@
+<%= form_for([@user, @note], url: user_note_path(@user, @note)) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "Note title...", class: "form-control" %>
+  
+  <%= f.label :content %>
+  <%= f.text_area :content, placeholder: "The content of your note...", class: "form-control" %>
+  
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <br /><br />
+  <%= link_to "Cancel", user_note_path, class: "cancel btn btn-danger" %>
+<% end %>
