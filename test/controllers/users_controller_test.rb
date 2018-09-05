@@ -19,18 +19,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Edit User" + " | #{@base_title}"
   end
   
-  test "should create user" do
-    email    = "user@example.com"
-    password = "foobar"
-    assert_difference 'User.count' do
-      post users_path, params: { user: { email: email, password: password, password_confirmation: password } }
-    end
-    new_user = User.last
-    assert_redirected_to user_notes_url(new_user)
-    assert_not flash.empty?
-    assert_equal new_user.email, email
-  end
-  
   test "should edit user" do
     email    = "matthew@example.com"
     password = "foobar"
