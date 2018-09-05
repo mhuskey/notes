@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      flash[:success] = "Account created!"
-      redirect_to root_path
+      log_in @user
+      flash[:success] = "Welcome to the Notes App!"
+      redirect_to user_notes_url(@user)
     else
       render 'new'
     end
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated!"
-      redirect_to root_path
+      redirect_to root_url
     else
       render 'edit'
     end

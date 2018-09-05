@@ -25,9 +25,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count' do
       post users_path, params: { user: { email: email, password: password, password_confirmation: password } }
     end
-    assert_redirected_to root_path
-    assert_not flash.empty?
     new_user = User.last
+    assert_redirected_to user_notes_url(new_user)
+    assert_not flash.empty?
     assert_equal new_user.email, email
   end
   

@@ -19,7 +19,7 @@ class NotesController < ApplicationController
     @note = @user.notes.create(note_params)
     if @note.save
       flash[:success] = "Note created!"
-      redirect_to user_notes_path
+      redirect_to user_notes_url
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class NotesController < ApplicationController
   def update
     if @note.update(note_params)
       flash[:success] = "Note updated!"
-      redirect_to user_note_path
+      redirect_to user_note_url
     else
       render 'edit'
     end
@@ -43,7 +43,7 @@ class NotesController < ApplicationController
     else
       flash[:danger]  = "Error deleting note!"
     end
-    redirect_to user_notes_path
+    redirect_to user_notes_url
   end
   
   

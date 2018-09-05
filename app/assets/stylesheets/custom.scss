@@ -3,7 +3,7 @@
 @import "font-awesome";
 
 
-/* variables */
+/* mixins, variables, etc. */
 
 $background: #282a36;
 $foreground: #f8f8f2;
@@ -15,6 +15,12 @@ $pink: #ff79c6;
 $purple: #bd93f9;
 $red: #ff5555;
 $yellow: #f1fa8c;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 
 
 /* universal */
@@ -48,6 +54,17 @@ h2 {
 p {
   font-size: 1.3em;
   line-height: 1.7em;
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: middle;
+  width: 45%;
+  margin-top: 60px;
+  margin-left: 25%;
 }
 
 
