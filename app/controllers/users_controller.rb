@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user,       only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
   
   def new
     @user = User.new
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated!"
-      redirect_to root_url
+      redirect_to user_notes_url(@user)
     else
       render 'edit'
     end

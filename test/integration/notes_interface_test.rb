@@ -5,9 +5,16 @@ class NotesInterfaceTest < ActionDispatch::IntegrationTest
   def setup
     @base_title = "Notes App"
     @user       = users(:matt)
+    @other_user = users(:bob)
   end
   
   test "notes interface" do
+    # Try to view notes without logging in
+    get user_notes_path(@user)
+    follow_redirect!
+    assert_template 'sessions/new'
+    
+    # Log in as @user
     log_in_as(@user)
     get new_user_note_path(@user, @note)
     
@@ -60,6 +67,11 @@ class NotesInterfaceTest < ActionDispatch::IntegrationTest
     assert_template 'notes/index'
     assert_not flash.empty?
     assert_not_equal Note.last.title, title
+    
+    # Try to view other user's notes
+    get user_notes_path(@other_user)
+    follow_redirect!
+    assert_template 
   end
   
 end
