@@ -5,9 +5,9 @@
   <%= f.text_field :title, placeholder: "Note title...", class: "form-control" %>
   
   <%= f.label :content %>
-  <%= f.text_area :content, placeholder: "The content of your note...", class: "form-control" %>
+  <%= f.text_area :content, placeholder: "The content of your note...", class: "form-control edit-text" %>
   
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-  <br /><br />
+  <br />
   <%= link_to "Cancel", user_note_path, class: "cancel btn btn-danger" %>
 <% end %>

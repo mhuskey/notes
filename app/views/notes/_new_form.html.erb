@@ -8,6 +8,6 @@
   <%= f.text_area :content, placeholder: "The content of your note...", class: "form-control" %>
   
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-  <br /><br />
+  <br />
   <%= link_to "Cancel", user_notes_path, class: "cancel btn btn-danger" %>
 <% end %>

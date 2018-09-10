@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand">
+    <%= link_to root_path do %>
+      <%= image_tag("logo.png", class: "img-responsive d-inline-block align-top", id: "navbar_logo") %>
+    <% end %>
+  </a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="nav navbar-nav ml-auto">
+      
+      <!-- Logged in -->
+      <% if logged_in? %>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to new_user_note_path(@user, @note) do %>
+          <i class="fa fa-plus"></i>
+        <% end %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+          <%= link_to('Notes', user_notes_path(@user)) %>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"<%= link_to "Log out", logout_path, method: :delete %></a>
+      </li>
+        
+      <!-- Logged out -->
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log in</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

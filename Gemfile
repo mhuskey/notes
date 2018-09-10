@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass' # adds bootstrap
+gem 'bootstrap' # adds bootstrap
 gem 'jquery-rails' # adds jQuery so Bootstrap works
 gem 'font-awesome-rails' # adds font-awesome
 

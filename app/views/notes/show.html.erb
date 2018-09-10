@@ -1,14 +1,16 @@
 <%= provide(:title, @note.title) %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1><%= @note.title %></h1>
-    <p><%= @note.content %></p>
-    
-    <br />
-    <%= link_to "Edit Note", edit_user_note_path(@user, @note) %>
-    
-    <br />
-    <h2><%= link_to "All Notes", user_notes_path %> | <%= link_to "Delete", user_note_path(@user, @note), method: :delete, data: { confirm: "Are you sure? This action cannot be undone." } %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1><%= @note.title %></h1>
+      <p><%= simple_format(@note.content) %></p>
+      
+      <br />
+      <%= link_to "Edit Note", edit_user_note_path(@user, @note) %>
+      
+      <br />
+      <h2><%= link_to "All Notes", user_notes_path %> | <%= link_to "Delete", user_note_path(@user, @note), method: :delete, data: { confirm: "Are you sure? This action cannot be undone." } %></h2>
+    </div>
   </div>
 </div>

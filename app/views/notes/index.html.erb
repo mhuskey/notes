@@ -1,14 +1,17 @@
 <%= provide(:title, "All Notes") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>All Notes</h1>
-    <% @user.notes.each do |note| %>
-      <ul><%= link_to note.title, user_note_path(@user, note) %></ul>
-      <ul><%= note.content %></ul>
-    <% end %>
-    
-    <br />
-    <h2><%= link_to "Create New Note", new_user_note_path(@user, @note) %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>All Notes</h1>
+      <% @user.notes.each do |note| %>
+        <ul><%= link_to note.title, user_note_path(@user, note) %></ul>
+        <ul id="note-content"><%= simple_format(note.content) %></ul>
+        <br />
+      <% end %>
+      
+      <br />
+      <h2><%= link_to "Create New Note", new_user_note_path(@user, @note) %></h2>
+    </div>
   </div>
 </div>

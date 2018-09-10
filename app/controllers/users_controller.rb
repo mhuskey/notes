@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   
   def new
+    if logged_in?
+      redirect_to root_url
+    end
     @user = User.new
   end
   
