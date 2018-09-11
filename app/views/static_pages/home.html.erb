@@ -1,19 +1,33 @@
-<%= provide(:title, 'Home') %>
+<%= provide(:title, 'Welcome') %>
 
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h1 class="text-center">Home</h1>
-      
+      <h1 class="text-center">Welcome to Notes</h1>
       <br />
-      <h2><%= link_to "Sign up", signup_path %></h2>
-      
-      <br />
-      <% if logged_in? %>
-        <h2><%= link_to "Log out", logout_path, method: :delete %></h2>
-      <% else %>
-        <h2><%= link_to "Log in", login_path %></h2>
-      <% end %>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col-md-3 offset-md-1">
+      <%= image_tag('create.jpg', class: "img-thumbnail") %>
+      <br /><br />
+      <h2 class="text-center purple">Create</h2>
+      <p class="text-center">Quickly and easily create notes. Make Notes your online respository for your thoughts and ideas!</p>
+    </div>
+    
+    <div class="col-md-3 offset-md-1">
+      <%= image_tag('free.jpg', class: "img-thumbnail") %>
+      <br /><br />
+      <h2 class="text-center">Free</h2>
+      <p class="text-center">This is a 100% free app! Simply create a free account by <%= link_to "Signing up", signup_path %> now and start using Notes!</p>
+    </div>
+    
+    <div class="col-md-3 offset-md-1">
+      <%= image_tag('responsive.jpg', class: "img-thumbnail") %>
+      <br /><br />
+      <h2 class="text-center purple">Responsive</h2>
+      <p class="text-center">Notes uses a responsive design. So whether you are using your mobile phone, tablet, or laptop, Notes will look great and work well!</p>
     </div>
   </div>
 </div>

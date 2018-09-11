@@ -3,14 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h1><%= @note.title %></h1>
+      <h1 class="text-center"><%= @note.title %></h1>
+      
+      <br />
       <p><%= simple_format(@note.content) %></p>
       
-      <br />
-      <%= link_to "Edit Note", edit_user_note_path(@user, @note) %>
       
-      <br />
-      <h2><%= link_to "All Notes", user_notes_path %> | <%= link_to "Delete", user_note_path(@user, @note), method: :delete, data: { confirm: "Are you sure? This action cannot be undone." } %></h2>
+      <br /><br /><br />
+      <h4 class="text-center"><%= link_to "Edit Note", edit_user_note_path(@user, @note) %> | <%= link_to "Delete", user_note_path(@user, @note), method: :delete, data: { confirm: "Are you sure? This action cannot be undone." } %> | <%= link_to "All Notes", user_notes_path %></h4>
     </div>
   </div>
 </div>

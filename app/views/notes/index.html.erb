@@ -3,15 +3,28 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h1>All Notes</h1>
-      <% @user.notes.each do |note| %>
-        <ul><%= link_to note.title, user_note_path(@user, note) %></ul>
-        <ul id="note-content"><%= simple_format(note.content) %></ul>
-        <br />
-      <% end %>
-      
+      <h1 class="text-center">All Notes</h1>
       <br />
-      <h2><%= link_to "Create New Note", new_user_note_path(@user, @note) %></h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card-columns">
+        <% @user.notes.each do |note| %>
+          <div class="card text-center">
+            <img class="card-img-top" <%= image_tag('card.png', class: "img-thumbnail") %>
+            <div class="card-body">
+              <h5 class="card-title"><%= note.title %></h5><br />
+              <a class="btn btn-primary" <%= link_to('View Note', user_note_path(@user, note)) %></a><br /><br />
+              <p class="card-text"><small class="text-muted">Created: <%= time_ago_in_words(note.created_at) %> ago<br />
+                Updated: <%= time_ago_in_words(note.updated_at) %> ago</small></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

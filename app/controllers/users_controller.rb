@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def new
     if logged_in?
+      flash[:info] = "You have already signed up and are logged into your account."
       redirect_to root_url
     end
     @user = User.new

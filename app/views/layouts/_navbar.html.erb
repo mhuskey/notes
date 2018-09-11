@@ -22,7 +22,7 @@
       <li class="nav-item">
         <a class="nav-link"
           <%= link_to('Notes', user_notes_path(@user)) %>
-          </a>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link"<%= link_to "Log out", logout_path, method: :delete %></a>
@@ -30,6 +30,9 @@
         
       <!-- Logged out -->
       <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign up</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="/login">Log in</a>
         </li>
