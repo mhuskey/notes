@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Notes is a Ruby on Rails note-taking app linked to a registered email address.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## Features
+Easily create an account or log in and begin creating notes:
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_01.png" />
 
-* System dependencies
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_02.png" />
 
-* Configuration
+Notes are displayed and show the creation and last edit date:
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_05.png" />
 
-* Database creation
+The app uses a Dracula color theme, so writing and editing notes are easy on the eyes:
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_03.png" />
 
-* Database initialization
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_04.png" />
 
-* How to run the test suite
+<img src="https://github.com/mhuskey/notes/blob/master/app/assets/images/screenshots/Notes_06.png" />
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
-
-* ...
+## Usage
+1. Clone the app:
+ `git clone https://github.com/mhuskey/notes.git`
+2. Install gem dependencies:
+`bundle install`
+3. Migrate the databases:
+`rails db:migrate`
+4. Start the rails server:
+`rails server`
+5. Open your browser to the local address:
+`http://0.0.0.0:3000/`
